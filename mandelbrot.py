@@ -66,7 +66,7 @@ for pattern_idx, (width, height, max_iter, scale, block_type, description) in en
     print(f" Minecraft Area: {width} x {height} blocks")
     print(f" Block: {block_type}")
     
-    # REMOVE previous pattern if it exists
+    # remove previous pattern if it exists
     if previous_pattern_points is not None:
         print(" Removing previous pattern...")
         points_removed = 0
@@ -135,15 +135,13 @@ for pattern_idx, (width, height, max_iter, scale, block_type, description) in en
     
     previous_pattern_points = current_pattern_points
     
-    # Wait for user before replacing with next pattern (except for final pattern)
     if pattern_idx < len(patterns) - 1:
         print()
         print(f" Next pattern will be {patterns[pattern_idx + 1][0]}x{patterns[pattern_idx + 1][1]} blocks")
-        input(" Press Enter to REMOVE this pattern and draw next one...")
+        input(" Press Enter to remove and draw next one...")
     else:
         print()
         print(" MANDELBROT COMPLETE")
-        print(" You now have a choice:")
         print(" 1. Keep this pattern (it will remain visible)")
         print(" 2. Remove this pattern (clean up everything)")
         print()
@@ -166,8 +164,8 @@ for pattern_idx, (width, height, max_iter, scale, block_type, description) in en
             mc.command("say Massive Mandelbrot cleaned up!")
             print(f" Final pattern removed! ({points_removed} blocks)")
         else:
-            mc.command("say Massive Mandelbrot complete! Epic fractal saved!")
-            print(" Final pattern kept! Enjoy your EPIC fractal!")
+            mc.command("say done.")
+            print("done")
 
 print()
 print(" PROGRAM DONE ")
